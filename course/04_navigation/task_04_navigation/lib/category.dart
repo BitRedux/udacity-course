@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 // @required is defined in the meta.dart package
 import 'package:meta/meta.dart';
 
-import 'package:task_04_navigation/converter_route.dart';
+import 'package:task_04_navigation/converter_screen.dart';
 import 'package:task_04_navigation/unit.dart';
 
 // We use an underscore to indicate that these variables are private.
@@ -45,9 +45,28 @@ class Category extends StatelessWidget {
         assert(units != null),
         super(key: key);
 
-  /// Navigates to the [ConverterRoute].
+  /// Navigates to the [ConverterScreen].
   void _navigateToConverter(BuildContext context) {
-    // TODO: Using the Navigator, navigate to the [ConverterRoute]
+    Navigator
+        .of(context)
+        .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+      return Scaffold(
+        appBar: AppBar(
+          elevation: 1.0,
+          title: Text(
+            name,
+            style: Theme.of(context).textTheme.display1,
+          ),
+          centerTitle: true,
+          backgroundColor: color,
+        ),
+        body: ConverterScreen(
+          color: color,
+          name: name,
+          units: units,
+        ),
+      );
+    }));
   }
 
   /// Builds a custom widget that shows [Category] information.
@@ -69,9 +88,8 @@ class Category extends StatelessWidget {
           splashColor: color,
           // We can use either the () => function() or the () { function(); }
           // syntax.
-          // TODO: Update this onTap property to call _navigateToConverter()
           onTap: () {
-            print('I was tapped!');
+            _navigateToConverter(context);
           },
           child: Padding(
             padding: EdgeInsets.all(8.0),
