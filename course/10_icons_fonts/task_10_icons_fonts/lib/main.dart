@@ -26,10 +26,10 @@ class UnitConverterApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Unit Converter',
       theme: ThemeData(
-        // TODO: fill in the fontFamily property
         textTheme: Theme.of(context).textTheme.apply(
               bodyColor: Colors.black,
               displayColor: Colors.grey[600],
+              fontFamily: 'Railway',
             ),
         // This colors the [InputOutlineBorder] when it is selected
         primaryColor: Colors.grey[500],

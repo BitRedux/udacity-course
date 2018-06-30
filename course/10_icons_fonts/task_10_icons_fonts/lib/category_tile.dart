@@ -61,13 +61,8 @@ class CategoryTile extends StatelessWidget {
               // See https://www.dartlang.org/guides/language/effective-dart/usage#do-use-collection-literals-when-possible
               children: [
                 Padding(
-                  padding: EdgeInsets.all(16.0),
-                  // TODO: Use an Image instead of an Icon
-                  child: Icon(
-                    category.iconLocation,
-                    size: 60.0,
-                  ),
-                ),
+                    padding: EdgeInsets.all(16.0),
+                    child: Image.asset(category.iconLocation)),
                 Center(
                   child: Text(
                     category.name,
